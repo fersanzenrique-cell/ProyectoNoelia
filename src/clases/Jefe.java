@@ -1,5 +1,5 @@
 /**
- * @Author : Enrique Fernández
+ * @Author : Enrique Fernández Sanz
  */
 package clases;
 

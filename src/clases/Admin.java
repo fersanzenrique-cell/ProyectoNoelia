@@ -1,7 +1,8 @@
 /**
- * @Author : Enrique Fernández
+ * @Author : Enrique Fernández Sanz
  */
 package clases;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Admin extends Usuario
@@ -22,5 +23,7 @@ public class Admin extends Usuario
     public List<String> verConsultas()
     {
         // TO-DO: crear un documento, append cada vez que estas dos funciones de arriba ^^ y escribir que hicieron
+        List<String> consultas = new ArrayList<>();
+        return consultas;
     }
 }

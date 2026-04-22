@@ -3,19 +3,20 @@
  */
 package clases;
 import java.time.LocalDate;
+import java.util.List;
 
 //clase
-    public abstract class Eventos {
+public class Evento {
     private int codigoEvento;
     private String nombre;
     private String Ubicacion;
     private LocalDate fecha;
     private double precio;
-    private String artistas;
+    private List<String> artistas;
 
 
     //constructor
-    public Eventos(String nombre, String ubicacion, LocalDate fecha, double precio, String artistas, int codigoEvento) {
+    public Evento(int codigoEvento, String nombre, LocalDate fecha,  String ubicacion, double precio, List<String> artistas) {
         this.nombre = nombre;
         this.Ubicacion = ubicacion;
         this.fecha = fecha;
@@ -23,9 +24,9 @@ import java.time.LocalDate;
         this.codigoEvento = codigoEvento;
         this.artistas = artistas;
 
-        //getters
-    }
 
+    }
+    //getters
     public String getNombre() {
         return nombre;
     }
@@ -46,7 +47,7 @@ import java.time.LocalDate;
         return codigoEvento;
     }
 
-    public String getArtistas() {
+    public List<String> getArtistas() {
         return artistas;
     }
 
@@ -69,10 +70,6 @@ import java.time.LocalDate;
 
     public void setCodigoEvento(int codigoEvento) {
         this.codigoEvento = codigoEvento;
-    }
-
-    public void setArtistas(String artistas) {
-        this.artistas = artistas;
     }
 
     //acción de mostrar información acerca de eventos
