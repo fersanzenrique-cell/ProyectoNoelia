@@ -75,22 +75,15 @@ public class Evento {
     //acción de mostrar información acerca de eventos
 
     public String mostrarInfo() {
-
-        return "";
+        // Creo esta clase tendria que tener otro atributo llamado info, si no no tendría mucho sentido
+        return this.nombre + " \n" + this.fecha + " \n" + this.artistas;
     }
 
     //accion de actualizar dicha info
 
     public void actualizarInfo() {
-
+        // seria como un setter de varios atributos no?
     }
-    //método para reservar
-
-    public int Reserva() {
-
-        return 0;
-    }
-
 
 }
 

@@ -1,10 +1,10 @@
-Festival Vibra Madrid;Madrid;2026-06-15;45.50;DJ Nano, Natos y Waor;1001
-Concierto Indie Nights;Barcelona;2026-07-10;35.00;Vetusta Morla, Love of Lesbian;1002
-Electro Beach Fest;Valencia;2026-08-05;60.00;David Guetta, Martin Garrix;1003
-Rock Legends Tour;Bilbao;2026-09-20;55.75;Extremoduro Tribute, Marea;1004
-Jazz & Soul Experience;Sevilla;2026-10-12;40.00;Diana Navarro, Jorge Pardo;1005
-Urban Flow Night;Málaga;2026-07-22;30.00;Quevedo, Saiko;1006
-Techno Underground;Valencia;2026-11-02;25.00;Amelie Lens, Charlotte de Witte;1007
-Pop Summer Live;Madrid;2026-06-30;50.00;Aitana, Lola Índigo;1008
-Flamenco Fusion Night;Granada;2026-09-05;20.00;Niña Pastori, Rosalía Tribute;1009
-Clásica al Atardecer;Salamanca;2026-08-18;15.00;Orquesta Sinfónica de Castilla y León;1010
+1001;Festival Vibra Madrid;2026-06-15;Madrid;45.50;DJ Nano,Natos y Waor
+1002;Concierto Indie Nights;2026-07-10;Barcelona;35.00;Vetusta Morla,Love of Lesbian
+1003;Electro Beach Fest;2026-08-05;Valencia;60.00;David Guetta,Martin Garrix
+1004;Rock Legends Tour;2026-09-20;Bilbao;55.75;Extremoduro Tribute,Marea
+1005;Jazz & Soul Experience;2026-10-12;Sevilla;40.00;Diana Navarro,Jorge Pardo
+1006;Urban Flow Night;2026-07-22;Málaga;30.00;Quevedo,Saiko
+1007;Techno Underground;2026-11-02;Valencia;25.00;Amelie Lens,Charlotte de Witte
+1008;Pop Summer Live;2026-06-30;Madrid;50.00;Aitana,Lola Índigo
+1009;Flamenco Fusion Night;2026-09-05;Granada;20.00;Niña Pastori,Rosalía Tribute
+1010;Clásica al Atardecer;2026-08-18;Salamanca;15.00;Orquesta Sinfónica de Castilla y León

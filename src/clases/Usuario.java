@@ -3,29 +3,27 @@
  */
 package clases;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Usuario extends Cliente
 {
-    private String contraseña;
+    private String password;
     public Usuario(){}
-    public Usuario(int id, String nombre, String email, String contraseña)
+    public Usuario(int id, String nombre, String email, String password)
     {
         super(id,nombre,email);
-        this.contraseña = contraseña;
+        this.password = password;
     }
-    public String getContraseña()
+    public String getPassword()
     {
-        String contraseña = this.contraseña;
+        String contraseña = this.password;
         return contraseña;
     }
-    public void setContraseña(String contraseña)
+    public void setPassword(String password)
     {
-        this.contraseña = contraseña;
+        this.password = password;
     }
     public Reserva comprarEntrada(Evento evento)
     {
@@ -42,7 +40,7 @@ public class Usuario extends Cliente
         );
         try
         {
-            File archivo = new File("baseDeDatos/reservas");
+            File archivo = new File("baseDeDatos/reservas.txt");
             BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo, true));
             escritor.write(
                     id + ";" +
@@ -50,16 +48,31 @@ public class Usuario extends Cliente
                     this.getId() + ";" +
                     evento
                     );
-            escritor.close();
         }
         catch (IOException e) { throw new RuntimeException(e); }
 
         return reserva;
     }
 
-    public void recibirNotificaciones()
+    public String recibirNotificaciones()
     {
         // TO-DO: hacer un fichero que tenga muchas notificaciones y ponerlas en la ventana
+        try
+        {
+            File archivo = new File("baseDeDatos/notificacionUsuario.txt");
+            BufferedReader lector = new BufferedReader(new FileReader(archivo));
+            ArrayList<String> notificaciones = new ArrayList<>();
+            String linea = lector.readLine();
+            while (linea != null)
+            {
+                notificaciones.add(linea);
+                linea = lector.readLine();
+            }
+            Random rd = new Random();
+            return notificaciones.get(rd.nextInt(0, notificaciones.size()));
+        }
+        catch (IOException e) { throw new RuntimeException(e); }
+
     }
     public void votarEncuesta()
     {

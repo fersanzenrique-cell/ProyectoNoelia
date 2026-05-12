@@ -42,7 +42,6 @@ public class Invitado
                 System.err.println("El archivo de eventos no existe.");
             }
         }
-        catch (FileNotFoundException e) { throw new RuntimeException(e); }
         catch (IOException e) { throw new RuntimeException(e);}
         return listaEventos;
     }

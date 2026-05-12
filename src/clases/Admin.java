@@ -8,9 +8,9 @@ import java.util.List;
 public class Admin extends Usuario
 {
     public Admin(){}
-    public Admin(int id, String nombre, String email, String contraseña)
+    public Admin(int id, String nombre, String email, String password)
     {
-        super(id,nombre,email,contraseña);
+        super(id,nombre,email,password);
     }
     public void modificarEvento(Evento evento)
     {

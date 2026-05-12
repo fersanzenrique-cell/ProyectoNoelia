@@ -1,0 +1,11 @@
+3245;Maria;maria@gmail.com;4141
+3245;Maria;maria@gmail.com;4141
+1872;Carlos;carlos.admin@gmail.com;8291
+4510;Lucia;lucia.staff@gmail.com;5523
+9087;David;david.manager@gmail.com;7310
+2764;Elena;elena.control@gmail.com;1945
+6138;Javier;javier.admin@gmail.com;6672
+7451;Paula;paula.events@gmail.com;8080
+3926;Sergio;sergio.staff@gmail.com;1357
+5843;Andrea;andrea.manager@gmail.com;2468
+8119;Raul;raul.control@gmail.com;9090
