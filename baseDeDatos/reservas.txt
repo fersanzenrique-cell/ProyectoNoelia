@@ -1,3 +1,4 @@
 901;Butaca-A12;Enrique;501
 902;Pista-General;Ana;501
-903;Grada-B23;Carlos;502
+903;Grada-B23;Carlos;502901;Butaca-A12;Jesus;501
+903;Grada-B23;Jesus;502

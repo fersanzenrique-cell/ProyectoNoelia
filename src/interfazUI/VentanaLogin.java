@@ -13,23 +13,26 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class VentanaLogin extends JFrame {
 
-    private JPanel contentPane;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
     private JTextField txtUsuario;
     private JPasswordField txtContrasena;
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                VentanaLogin frame = new VentanaLogin();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    VentanaLogin frame = new VentanaLogin();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -65,39 +68,46 @@ public class VentanaLogin extends JFrame {
         txtContrasena.setBounds(140, 130, 180, 20);
         contentPane.add(txtContrasena);
 
-        JButton btnLogin = getJButton();
-        contentPane.add(btnLogin);
-    }
-
-    private JButton getJButton() {
         JButton btnLogin = new JButton("Ingresar");
-        btnLogin.addActionListener(e -> {
-            String usuarioIntroducido = txtUsuario.getText().trim();
-            String contrasenaIntroducida = new String(txtContrasena.getPassword()).trim();
+        btnLogin.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String usuarioIntroducido = txtUsuario.getText().trim();
+                String contrasenaIntroducida = new String(txtContrasena.getPassword()).trim();
+                
+                boolean accesoValido = false;
+                Usuario usuarioLogueado = null;
+                Admin adminLogueado = null;
+                Jefe jefeLogueado = null;
 
-            Usuario usuarioLogueado;
-            Admin adminLogueado = null;
-            Jefe jefeLogueado = null;
+                usuarioLogueado = Usuario.buscarEnArchivo(usuarioIntroducido, contrasenaIntroducida);
 
-            usuarioLogueado = Usuario.buscarEnArchivo(usuarioIntroducido, contrasenaIntroducida);
+                if (usuarioLogueado == null) {
+                    adminLogueado = Admin.buscarEnArchivo(usuarioIntroducido, contrasenaIntroducida);
+                }
 
-            if (usuarioLogueado == null) {
-                adminLogueado = Admin.buscarEnArchivo(usuarioIntroducido, contrasenaIntroducida);
-            }
+                if (usuarioLogueado == null && adminLogueado == null) {
+                    jefeLogueado = Jefe.buscarEnArchivo(usuarioIntroducido, contrasenaIntroducida);
+                }
 
-            if (usuarioLogueado == null && adminLogueado == null) {
-                jefeLogueado = Jefe.buscarEnArchivo(usuarioIntroducido, contrasenaIntroducida);
-            }
+                if (usuarioLogueado != null || adminLogueado != null || jefeLogueado != null) {
+                    Usuario usuarioParaVentana = null;
+                    if (jefeLogueado != null) {
+                        usuarioParaVentana = jefeLogueado;
+                    } else if (adminLogueado != null) {
+                        usuarioParaVentana = adminLogueado;
+                    } else {
+                        usuarioParaVentana = usuarioLogueado;
+                    }
 
-            if (usuarioLogueado != null || adminLogueado != null || jefeLogueado != null) {
-                VentanaPrincipal principal = new VentanaPrincipal();
-                principal.setVisible(true);
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "No está disponible esa cuenta", "Error de Login", JOptionPane.ERROR_MESSAGE);
+                    VentanaPrincipal principal = new VentanaPrincipal(usuarioParaVentana);
+                    principal.setVisible(true);
+                    dispose(); 
+                } else {
+                    JOptionPane.showMessageDialog(null, "No está disponible esa cuenta", "Error de Login", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         btnLogin.setBounds(140, 180, 110, 30);
-        return btnLogin;
+        contentPane.add(btnLogin);
     }
 }
