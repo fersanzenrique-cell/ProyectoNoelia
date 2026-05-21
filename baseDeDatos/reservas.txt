@@ -1,9 +1,3 @@
-Nuevas entradas disponibles para Primavera Sound.
-La organización de Mad Cool Festival publica cambios en los horarios.
-Confirmados nuevos artistas para Arenal Sound.
-Última hora desde Tomorrowland: ampliación de zonas de acceso.
-Alta demanda de entradas para Coachella.
-La programación oficial de Sónar ya está disponible.
-Nuevos escenarios anunciados para Viña Rock.
-El recinto de Ultra Music Festival alcanza gran afluencia de público.
-Actualización importante para asistentes de Rototom Sunsplash.
+901;Butaca-A12;Enrique;501
+902;Pista-General;Ana;501
+903;Grada-B23;Carlos;502

@@ -8,3 +8,6 @@
 1008;Pop Summer Live;2026-06-30;Madrid;50.00;Aitana,Lola Índigo
 1009;Flamenco Fusion Night;2026-09-05;Granada;20.00;Niña Pastori,Rosalía Tribute
 1010;Clásica al Atardecer;2026-08-18;Salamanca;15.00;Orquesta Sinfónica de Castilla y León
+501;Festival Primavera Techno;2026-06-15;Auditorio Central Móstoles;45.50
+502;Concierto Rock Urbano;2026-07-22;Plaza de Toros;25.00
+503;Gala Pop Stars;2026-08-05;Estadio Municipal;60.00

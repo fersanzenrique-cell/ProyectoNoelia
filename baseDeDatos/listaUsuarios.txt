@@ -1,0 +1,3 @@
+4;Enrique;enrique@email.com;enrique123
+102;Carlos;carlos.gomez@email.com;carlos456
+103;Ana;ana.martinez@email.com;ana789

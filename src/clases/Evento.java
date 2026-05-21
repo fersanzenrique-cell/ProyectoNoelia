@@ -2,6 +2,7 @@
  * @Author : Jesús Farinango Villa
  */
 package clases;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
 public class Evento {
     private int codigoEvento;
     private String nombre;
-    private String Ubicacion;
+    private String ubicacion;
     private LocalDate fecha;
     private double precio;
     private List<String> artistas;
@@ -18,12 +19,11 @@ public class Evento {
     //constructor
     public Evento(int codigoEvento, String nombre, LocalDate fecha,  String ubicacion, double precio, List<String> artistas) {
         this.nombre = nombre;
-        this.Ubicacion = ubicacion;
+        this.ubicacion = ubicacion;
         this.fecha = fecha;
         this.precio = precio;
         this.codigoEvento = codigoEvento;
         this.artistas = artistas;
-
 
     }
     //getters
@@ -32,7 +32,7 @@ public class Evento {
     }
 
     public String getUbicacion() {
-        return Ubicacion;
+        return ubicacion;
     }
 
     public LocalDate getFecha() {
@@ -61,7 +61,7 @@ public class Evento {
     }
 
     public void setUbicacion(String ubicacion) {
-        Ubicacion = ubicacion;
+        this.ubicacion = ubicacion;
     }
 
     public void setPrecio(double precio) {
@@ -82,9 +82,45 @@ public class Evento {
     //accion de actualizar dicha info
 
     public void actualizarInfo() {
-        // seria como un setter de varios atributos no?
-    }
+        File archivoOriginal = new File("baseDeDatos/eventos.txt");
+        File archivoTemporal = new File("baseDeDatos/eventos_temp.txt");
 
+        try {
+            FileReader fr = new FileReader(archivoOriginal);
+            BufferedReader br = new BufferedReader(fr);
+            FileWriter fw = new FileWriter(archivoTemporal);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            String linea;
+            // Corregido a getidEvento() según el diagrama UML
+            String idBuscar = String.valueOf(this.getCodigoEvento());
+
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(";");
+                if (datos[0].equals(idBuscar)) {
+                    bw.write(this.getCodigoEvento() + ";" + this.nombre + ";" + this.ubicacion + ";" + this.precio);
+                } else {
+                    bw.write(linea);
+                }
+                bw.newLine();
+            }
+            br.close();
+            fr.close();
+            bw.close();
+            fw.close();
+
+            if (archivoOriginal.delete()) {
+                // Corregido: Controlamos el resultado de renameTo
+                if (archivoTemporal.renameTo(archivoOriginal)) {
+                    System.out.println("Información del evento actualizada.");
+                } else {
+                    System.out.println("Error al renombrar archivo temporal de eventos.");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al actualizar evento: " + e.getMessage());
+        }
+    }
 }
 
 
